@@ -15,7 +15,7 @@ public abstract class DAO {
 
     private static Connection conn;
 
-    public static Connection getConnection() {
+    public final static Connection getConnection() {
         if (conn != null)
             return conn;
 
@@ -40,7 +40,7 @@ public abstract class DAO {
         return conn;
     }
 
-    public static void closeConnection(Connection toBeClosed) {
+    public final static void closeConnection(Connection toBeClosed) {
         if (toBeClosed == null)
             return;
         try {
