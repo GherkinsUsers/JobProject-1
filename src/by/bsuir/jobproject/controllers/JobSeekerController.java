@@ -1,4 +1,4 @@
-package by.bsuir.jobproject.contollers;
+package by.bsuir.jobproject.controllers;
 
 import by.bsuir.jobproject.dao.JobSeekerDAO;
 import by.bsuir.jobproject.models.JobSeeker;
