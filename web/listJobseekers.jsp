@@ -12,29 +12,29 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Show All Students</title>
+    <title>Show All JobSeekers</title>
 </head>
 <body>
 <table>
     <thead>
     <tr>
-        <th>Jobseeker ID</th>
-        <th>Jobseeker Last Name</th>
-        <th>Jobseeker Name</th>
-        <th>Jobseeker Login</th>
-        <th>Jobseeker Password</th>
-        <th>Jobseeker Email</th>
+        <th> ID</th>
+        <th> Last Name</th>
+        <th> Name</th>
+        <th> Login</th>
+        <th> Password</th>
+        <th> Email</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${jobseekers}" var="jobseeker">
+    <c:forEach items="${jobSeekers}" var="jobSeeker">
         <tr>
-            <td><c:out value="${jobseeker.id_jobseeker}" /></td>
-            <td><c:out value="${jobseeker.jobseeker_lastname}" /></td>
-            <td><c:out value="${jobseeker.jobseeker_name}" /></td>
-            <td><c:out value="${jobseeker.jobseeker_login}" /></td>
-            <td><c:out value="${jobseeker.jobseeker_password}" /></td>
-            <td><c:out value="${jobseeker.jobseeker_email}" /></td>
+            <td><c:out value="${jobSeeker.id_jobseeker}" /></td>
+            <td><c:out value="${jobSeeker.jobseeker_lastname}" /></td>
+            <td><c:out value="${jobSeeker.jobseeker_name}" /></td>
+            <td><c:out value="${jobSeeker.jobseeker_login}" /></td>
+            <td><c:out value="${jobSeeker.jobseeker_password}" /></td>
+            <td><c:out value="${jobSeeker.jobseeker_email}" /></td>
         </tr>
     </c:forEach>
     </tbody>
