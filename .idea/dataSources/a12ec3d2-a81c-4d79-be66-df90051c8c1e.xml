@@ -119,7 +119,7 @@
       <ColNames>id_resume</ColNames>
       <RefSchemaName>jobproject</RefSchemaName>
       <RefTableName>resume</RefTableName>
-      <RefColNames>id_Resume</RefColNames>
+      <RefColNames>id_resume</RefColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
@@ -353,11 +353,16 @@ certificate_date_issue</ColNames>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="88" parent="15" name="PRIMARY">
+    <column id="88" parent="15" name="jobseeker_status">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="89" parent="15" name="PRIMARY">
       <ColNames>id_jobseeker</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="89" parent="15" name="id_applicant_application">
+    <foreign-key id="90" parent="15" name="id_applicant_application">
       <ColNames>id_jobseeker</ColNames>
       <RefSchemaName>jobproject</RefSchemaName>
       <RefTableName>application</RefTableName>
@@ -365,34 +370,34 @@ certificate_date_issue</ColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <column id="90" parent="16" name="id_position">
+    <column id="91" parent="16" name="id_position">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="91" parent="16" name="id_specialty">
+    <column id="92" parent="16" name="id_specialty">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="92" parent="16" name="position_name">
+    <column id="93" parent="16" name="position_name">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="93" parent="16" name="position_information">
+    <column id="94" parent="16" name="position_information">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="94" parent="16" name="id_specialty">
+    <index id="95" parent="16" name="id_specialty">
       <ColNames>id_specialty</ColNames>
     </index>
-    <key id="95" parent="16" name="PRIMARY">
+    <key id="96" parent="16" name="PRIMARY">
       <ColNames>id_position</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="96" parent="16" name="id_specialty_certificate">
+    <foreign-key id="97" parent="16" name="id_specialty_certificate">
       <ColNames>id_specialty</ColNames>
       <RefSchemaName>jobproject</RefSchemaName>
       <RefTableName>specialty</RefTableName>
@@ -400,41 +405,36 @@ certificate_date_issue</ColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <column id="97" parent="17" name="id_profession">
+    <column id="98" parent="17" name="id_profession">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="98" parent="17" name="id_specialty">
+    <column id="99" parent="17" name="id_specialty">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="99" parent="17" name="profession_name">
+    <column id="100" parent="17" name="profession_name">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="100" parent="17" name="profession_information">
+    <column id="101" parent="17" name="profession_information">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="101" parent="17" name="id_specialty">
+    <index id="102" parent="17" name="id_specialty">
       <ColNames>id_specialty</ColNames>
     </index>
-    <index id="102" parent="17" name="id_specialty_idx">
+    <index id="103" parent="17" name="id_specialty_idx">
       <ColNames>id_specialty</ColNames>
     </index>
-    <key id="103" parent="17" name="PRIMARY">
+    <key id="104" parent="17" name="PRIMARY">
       <ColNames>id_profession</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="104" parent="18" name="id_Resume">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
     <column id="105" parent="18" name="id_applicant">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
@@ -460,39 +460,44 @@ certificate_date_issue</ColNames>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="110" parent="18" name="resume_jobseecker_fullname">
-      <Position>7</Position>
-      <DataType>varchar(50)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="111" parent="18" name="resume_information">
+    <column id="110" parent="18" name="resume_information">
       <Position>8</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="112" parent="18" name="id_applicant_resume_idx">
+    <column id="111" parent="18" name="id_resume">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="112" parent="18" name="resume_jobseeker_fullname">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="113" parent="18" name="id_applicant_resume_idx">
       <ColNames>id_applicant</ColNames>
     </index>
-    <index id="113" parent="18" name="id_certificate">
+    <index id="114" parent="18" name="id_certificate">
       <ColNames>id_certificate</ColNames>
     </index>
-    <index id="114" parent="18" name="id_country">
+    <index id="115" parent="18" name="id_country">
       <ColNames>id_country</ColNames>
     </index>
-    <index id="115" parent="18" name="id_Resume">
-      <ColNames>id_Resume</ColNames>
+    <index id="116" parent="18" name="id_Resume">
+      <ColNames>id_resume</ColNames>
     </index>
-    <index id="116" parent="18" name="id_skill">
+    <index id="117" parent="18" name="id_skill">
       <ColNames>id_skill</ColNames>
     </index>
-    <index id="117" parent="18" name="id_specialty">
+    <index id="118" parent="18" name="id_specialty">
       <ColNames>id_specialty</ColNames>
     </index>
-    <key id="118" parent="18" name="PRIMARY">
-      <ColNames>id_Resume</ColNames>
+    <key id="119" parent="18" name="PRIMARY">
+      <ColNames>id_resume</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="119" parent="18" name="id_applicant_resume">
+    <foreign-key id="120" parent="18" name="id_applicant_resume">
       <ColNames>id_applicant</ColNames>
       <RefSchemaName>jobproject</RefSchemaName>
       <RefTableName>jobseeker</RefTableName>
@@ -500,7 +505,7 @@ certificate_date_issue</ColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <foreign-key id="120" parent="18" name="id_specialty">
+    <foreign-key id="121" parent="18" name="id_specialty">
       <ColNames>id_specialty</ColNames>
       <RefSchemaName>jobproject</RefSchemaName>
       <RefTableName>specialty</RefTableName>
@@ -508,7 +513,7 @@ certificate_date_issue</ColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <foreign-key id="121" parent="18" name="id_skill">
+    <foreign-key id="122" parent="18" name="id_skill">
       <ColNames>id_skill</ColNames>
       <RefSchemaName>jobproject</RefSchemaName>
       <RefTableName>skill</RefTableName>
@@ -516,7 +521,7 @@ certificate_date_issue</ColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <foreign-key id="122" parent="18" name="id_country">
+    <foreign-key id="123" parent="18" name="id_country">
       <ColNames>id_country</ColNames>
       <RefSchemaName>jobproject</RefSchemaName>
       <RefTableName>country</RefTableName>
@@ -524,96 +529,96 @@ certificate_date_issue</ColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <column id="123" parent="19" name="id_skill">
+    <column id="124" parent="19" name="id_skill">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="124" parent="19" name="skill_name">
+    <column id="125" parent="19" name="skill_name">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="125" parent="19" name="skill_date_experience">
+    <column id="126" parent="19" name="skill_date_experience">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="126" parent="19" name="id_skill">
+    <index id="127" parent="19" name="id_skill">
       <ColNames>id_skill</ColNames>
     </index>
-    <key id="127" parent="19" name="PRIMARY">
+    <key id="128" parent="19" name="PRIMARY">
       <ColNames>id_skill</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="128" parent="20" name="id_specialty">
+    <column id="129" parent="20" name="id_specialty">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="129" parent="20" name="specialty_name">
+    <column id="130" parent="20" name="specialty_name">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="130" parent="20" name="specialty_category">
+    <column id="131" parent="20" name="specialty_category">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="131" parent="20" name="id_specialty">
+    <index id="132" parent="20" name="id_specialty">
       <ColNames>id_specialty</ColNames>
     </index>
-    <key id="132" parent="20" name="PRIMARY">
+    <key id="133" parent="20" name="PRIMARY">
       <ColNames>id_specialty</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="133" parent="21" name="id_vacancy">
+    <column id="134" parent="21" name="id_vacancy">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="134" parent="21" name="id_profession">
+    <column id="135" parent="21" name="id_profession">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="135" parent="21" name="id_company">
+    <column id="136" parent="21" name="id_company">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="136" parent="21" name="id_position">
+    <column id="137" parent="21" name="id_position">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="137" parent="21" name="vacancy_name">
+    <column id="138" parent="21" name="vacancy_name">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="138" parent="21" name="vacancy_requirements">
+    <column id="139" parent="21" name="vacancy_requirements">
       <Position>6</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="139" parent="21" name="vacancy_payment">
+    <column id="140" parent="21" name="vacancy_payment">
       <Position>7</Position>
       <DataType>decimal(10,2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="140" parent="21" name="id_company_idx">
+    <index id="141" parent="21" name="id_company_idx">
       <ColNames>id_company</ColNames>
     </index>
-    <index id="141" parent="21" name="id_profession_idx">
+    <index id="142" parent="21" name="id_profession_idx">
       <ColNames>id_profession</ColNames>
     </index>
-    <key id="142" parent="21" name="PRIMARY">
+    <key id="143" parent="21" name="PRIMARY">
       <ColNames>id_vacancy</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="143" parent="21" name="id_profession">
+    <foreign-key id="144" parent="21" name="id_profession">
       <ColNames>id_profession</ColNames>
       <RefSchemaName>jobproject</RefSchemaName>
       <RefTableName>profession</RefTableName>
@@ -621,7 +626,7 @@ certificate_date_issue</ColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <foreign-key id="144" parent="21" name="id_company_vacancy">
+    <foreign-key id="145" parent="21" name="id_company_vacancy">
       <ColNames>id_company</ColNames>
       <RefSchemaName>jobproject</RefSchemaName>
       <RefTableName>company</RefTableName>
@@ -629,39 +634,39 @@ certificate_date_issue</ColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <column id="145" parent="22" name="id_workingjobseeker">
+    <column id="146" parent="22" name="id_workingjobseeker">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="146" parent="22" name="id_applicant">
+    <column id="147" parent="22" name="id_applicant">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="147" parent="22" name="id_company">
+    <column id="148" parent="22" name="id_company">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="148" parent="22" name="id_position">
+    <column id="149" parent="22" name="id_position">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="149" parent="22" name="work_date_register">
+    <column id="150" parent="22" name="work_date_register">
       <Position>5</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="150" parent="22" name="id_applicant_work_jobseeker_idx">
+    <index id="151" parent="22" name="id_applicant_work_jobseeker_idx">
       <ColNames>id_applicant</ColNames>
     </index>
-    <key id="151" parent="22" name="PRIMARY">
+    <key id="152" parent="22" name="PRIMARY">
       <ColNames>id_workingjobseeker</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="152" parent="22" name="id_applicant_work_jobseeker">
+    <foreign-key id="153" parent="22" name="id_applicant_work_jobseeker">
       <ColNames>id_applicant</ColNames>
       <RefSchemaName>jobproject</RefSchemaName>
       <RefTableName>jobseeker</RefTableName>

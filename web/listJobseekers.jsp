@@ -15,29 +15,30 @@
     <title>Show All JobSeekers</title>
 </head>
 <body>
-<table>
-    <thead>
-    <tr>
-        <th> ID</th>
-        <th> Last Name</th>
-        <th> Name</th>
-        <th> Login</th>
-        <th> Password</th>
-        <th> Email</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${jobSeekers}" var="jobSeeker">
+    <table>
+        <thead>
         <tr>
-            <td><c:out value="${jobSeeker.id_jobseeker}" /></td>
-            <td><c:out value="${jobSeeker.jobseeker_lastname}" /></td>
-            <td><c:out value="${jobSeeker.jobseeker_name}" /></td>
-            <td><c:out value="${jobSeeker.jobseeker_login}" /></td>
-            <td><c:out value="${jobSeeker.jobseeker_password}" /></td>
-            <td><c:out value="${jobSeeker.jobseeker_email}" /></td>
+            <th> ID</th>
+            <th> Last Name</th>
+            <th> Name</th>
+            <th> Login</th>
+            <th> Password</th>
+            <th> Email</th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <c:forEach items="${jobSeekers}" var="jobSeeker">
+            <tr>
+                <td><c:out value="${jobSeeker.id_jobseeker}" /></td>
+                <td><c:out value="${jobSeeker.jobseeker_lastname}" /></td>
+                <td><c:out value="${jobSeeker.jobseeker_name}" /></td>
+                <td><c:out value="${jobSeeker.jobseeker_login}" /></td>
+                <td><c:out value="${jobSeeker.jobseeker_password}" /></td>
+                <td><c:out value="${jobSeeker.jobseeker_email}" /></td>
+                <td><c:out value="${jobSeeker.jobseeker_status}" /></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </body>
 </html>

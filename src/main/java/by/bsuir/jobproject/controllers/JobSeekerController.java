@@ -50,6 +50,7 @@ public class JobSeekerController extends HttpServlet {
         jobSeeker.setJobseeker_login(request.getParameter("jobseeker_login"));
         jobSeeker.setJobseeker_password(request.getParameter("jobseeker_password"));
         jobSeeker.setJobseeker_email(request.getParameter("jobseeker_email"));
+        jobSeeker.setJobseeker_status(request.getParameter("jobseeker_status"));
 
         RequestDispatcher view = request.getRequestDispatcher(LIST_JOBSEEKERS);
         request.setAttribute("jobSeekers", dao.getAllJobSeekers());
