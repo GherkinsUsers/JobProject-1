@@ -14,7 +14,7 @@ import java.util.List;
  * Created by AR on 12.03.2017.
  */
 public class JobSeekerDAOImpl extends DAO implements JobSeekerDAO {
-
+//конст
     public void addJobSeeker(JobSeeker jobSeeker) {
         try {
             String query = "insert into jobseeker (jobseeker_lastname, jobseeker_name, jobseeker_login, jobseeker_password, jobseeker_email, jobseeker_status) values (?,?,?,?,?,?)";
@@ -28,9 +28,9 @@ public class JobSeekerDAOImpl extends DAO implements JobSeekerDAO {
             preparedStatement.setString(6, jobSeeker.getJobseeker_status());
 
             preparedStatement.executeUpdate();
-            preparedStatement.close();
+            preparedStatement.close();//finally
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace();//выше
         }
     }
 

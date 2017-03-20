@@ -35,7 +35,7 @@ public abstract class DAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+//Пробросить екс выше, метод протект,не статик
         return conn;
     }
 

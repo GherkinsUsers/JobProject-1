@@ -47,6 +47,7 @@ public class JobSeekerController extends HttpServlet {
         } else if (action.equalsIgnoreCase("insert")) {
             forward = INSERT_OR_EDIT;
         }
+        //doget dopost - final, protected abstract - execute
 
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);

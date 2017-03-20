@@ -29,7 +29,7 @@ public class CompanyController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward = "";
-        String action = request.getParameter("action");
+        String action = request.getParameter("action");//param const and action names
         if (action.equalsIgnoreCase("delete")) {
             int id_company = Integer.parseInt(request.getParameter("id_company"));
             dao.deleteCompany(id_company);
@@ -50,7 +50,7 @@ public class CompanyController extends HttpServlet {
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
     }
-
+//doget = dopost и вызывать отдельный метод в другом классе
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Company company = new Company();
 

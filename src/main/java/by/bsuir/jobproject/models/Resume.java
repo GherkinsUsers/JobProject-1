@@ -7,13 +7,12 @@ import java.io.Serializable;
  */
 public class Resume implements Serializable{
     private int id_resume;
-    private int id_applicant;
+    private int id_jobseeker;
     private int id_specialty;
     private int id_skill;
     private int id_certificate;
     private int id_country;
 
-    private String resume_jobseeker_fullname;
     private String resume_information;
 
     public int getId_resume() {
@@ -24,12 +23,12 @@ public class Resume implements Serializable{
         this.id_resume = id_resume;
     }
 
-    public int getId_applicant() {
-        return id_applicant;
+    public int getId_jobseeker() {
+        return id_jobseeker;
     }
 
-    public void setId_applicant(int id_applicant) {
-        this.id_applicant = id_applicant;
+    public void setId_jobseeker(int id_jobseeker) {
+        this.id_jobseeker = id_jobseeker;
     }
 
     public int getId_specialty() {
@@ -62,14 +61,6 @@ public class Resume implements Serializable{
 
     public void setId_country(int id_country) {
         this.id_country = id_country;
-    }
-
-    public String getResume_jobseeker_fullname() {
-        return resume_jobseeker_fullname;
-    }
-
-    public void setResume_jobseeker_fullname(String resume_jobseeker_fullname) {
-        this.resume_jobseeker_fullname = resume_jobseeker_fullname;
     }
 
     public String getResume_information() {
