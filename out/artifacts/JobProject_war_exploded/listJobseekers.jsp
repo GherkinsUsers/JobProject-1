@@ -15,30 +15,35 @@
     <title>Show All JobSeekers</title>
 </head>
 <body>
-    <table>
+    <table border=1>
         <thead>
-        <tr>
-            <th> ID</th>
-            <th> Last Name</th>
-            <th> Name</th>
-            <th> Login</th>
-            <th> Password</th>
-            <th> Email</th>
-        </tr>
+            <tr>
+                <th>JobSeeker ID</th>
+                <th>JobSeeker Last Name</th>
+                <th>JobSeeker Name</th>
+                <th>JobSeeker Login</th>
+                <th>JobSeeker Password</th>
+                <th>JobSeeker Email</th>
+                <th>JobSeeker Status</th>
+            </tr>
         </thead>
         <tbody>
-        <c:forEach items="${jobSeekers}" var="jobSeeker">
-            <tr>
-                <td><c:out value="${jobSeeker.id_jobseeker}" /></td>
-                <td><c:out value="${jobSeeker.jobseeker_lastname}" /></td>
-                <td><c:out value="${jobSeeker.jobseeker_name}" /></td>
-                <td><c:out value="${jobSeeker.jobseeker_login}" /></td>
-                <td><c:out value="${jobSeeker.jobseeker_password}" /></td>
-                <td><c:out value="${jobSeeker.jobseeker_email}" /></td>
-                <td><c:out value="${jobSeeker.jobseeker_status}" /></td>
-            </tr>
-        </c:forEach>
+            <%--@elvariable id="jobSeekers" type="java.util.List"--%>
+            <c:forEach items="${jobSeekers}" var="jobSeeker">
+                <tr>
+                    <td><c:out value="${jobSeeker.id_jobseeker}" /></td>
+                    <td><c:out value="${jobSeeker.jobseeker_lastname}" /></td>
+                    <td><c:out value="${jobSeeker.jobseeker_name}" /></td>
+                    <td><c:out value="${jobSeeker.jobseeker_login}" /></td>
+                    <td><c:out value="${jobSeeker.jobseeker_password}" /></td>
+                    <td><c:out value="${jobSeeker.jobseeker_email}" /></td>
+                    <td><c:out value="${jobSeeker.jobseeker_status}" /></td>
+                    <td><a href="JobSeekerController?action=edit&id_jobseeker=<c:out value="${jobSeeker.id_jobseeker}"/>">Update</a></td>
+                    <td><a href="JobSeekerController?action=delete&id_jobseeker=<c:out value="${jobSeeker.id_jobseeker}"/>">Delete</a></td>
+                </tr>
+            </c:forEach>
         </tbody>
-    </table>
-</body>
-</html>
+     </table>
+    <p><a href="JobSeekerController?action=insert">Add JobSeeker</a></p>
+ </body>
+ </html>

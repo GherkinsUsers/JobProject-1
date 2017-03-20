@@ -14,6 +14,7 @@
     <title>Welcome</title>
 </head>
 <body>
-    <jsp:forward page="/JobSeekerController?action=list"/>
+    <a href="/JobSeekerController?action=list">JobSeekers List</a>
+    <a href="/CompanyController?action=list">Companies List</a>
 </body>
 </html>
