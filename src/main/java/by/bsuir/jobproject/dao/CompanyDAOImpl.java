@@ -1,6 +1,6 @@
 package by.bsuir.jobproject.dao;
 
-import by.bsuir.jobproject.models.Company;
+import by.bsuir.jobproject.model.Company;
 import by.bsuir.jobproject.util.DAO;
 
 import java.sql.PreparedStatement;
@@ -13,12 +13,13 @@ import java.util.List;
 /**
  * Created by AR on 19.03.2017.
  */
+//TODO rename id
 public class CompanyDAOImpl extends DAO implements CompanyDAO {
 
     public void addCompany(Company company) {
         try {
             String query = "insert into company (id_country, company_name, company_staff, company_information, company_website) values (?,?,?,?,?)";
-            PreparedStatement preparedStatement = DAO.getConnection().prepareStatement(query);
+            PreparedStatement preparedStatement = getConnection().prepareStatement(query);
 
             preparedStatement.setInt(1, company.getId_country());
             preparedStatement.setString(2, company.getCompany_name());
@@ -36,7 +37,7 @@ public class CompanyDAOImpl extends DAO implements CompanyDAO {
     public void deleteCompany(int id_company) {
         try {
             PreparedStatement preparedStatement =
-                    DAO.getConnection().prepareStatement("delete from company where id_company=?");
+                    getConnection().prepareStatement("delete from company where id_company=?");
 
             preparedStatement.setInt(1, id_company);
             preparedStatement.executeUpdate();
@@ -49,7 +50,7 @@ public class CompanyDAOImpl extends DAO implements CompanyDAO {
     public void updateCompany(Company company) {
         try {
             String query = "update company set id_country=?, company_name=?, company_staff=?, company_information=?, company_website=? where id_company=?";
-            PreparedStatement preparedStatement = DAO.getConnection().prepareStatement(query);
+            PreparedStatement preparedStatement = getConnection().prepareStatement(query);
 
             preparedStatement.setInt(1, company.getId_country());
             preparedStatement.setString(2, company.getCompany_name());
@@ -68,7 +69,7 @@ public class CompanyDAOImpl extends DAO implements CompanyDAO {
     public List<Company> getAllCompanies() {
         List<Company> companies = new ArrayList<Company>();
         try {
-            Statement statement = DAO.getConnection().createStatement();
+            Statement statement = getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery("select id_company, id_country, company_name, company_staff, company_information, company_website from company");
             while (resultSet.next()) {
                 Company company = new Company();
@@ -91,7 +92,7 @@ public class CompanyDAOImpl extends DAO implements CompanyDAO {
     public Company getCompanyById(int id_company) {
         Company company = new Company();
         try {
-            PreparedStatement preparedStatement = DAO.getConnection().
+            PreparedStatement preparedStatement = getConnection().
                     prepareStatement("select * from company where id_company=?");
             preparedStatement.setInt(1, id_company);
             ResultSet resultSet = preparedStatement.executeQuery();

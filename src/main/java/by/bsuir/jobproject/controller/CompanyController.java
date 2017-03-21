@@ -1,7 +1,7 @@
-package by.bsuir.jobproject.controllers;
+package by.bsuir.jobproject.controller;
 
 import by.bsuir.jobproject.dao.CompanyDAOImpl;
-import by.bsuir.jobproject.models.Company;
+import by.bsuir.jobproject.model.Company;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

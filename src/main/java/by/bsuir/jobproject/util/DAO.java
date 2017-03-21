@@ -12,34 +12,40 @@ import java.util.Properties;
 
 public abstract class DAO {
 
-    private static Connection conn;
+    private static final String PROPERTY_URL = "url";
+    private static final String PROPERTY_DRIVER = "driver";
+    private static final String PROPERTY_USERNAME = "user";
+    private static final String PROPERTY_PASSWORD = "password";
+    private static final String PROPERTIES_FILE = "/db.properties";
 
-    public static Connection getConnection() {
-        if (conn != null)
-            return conn;
+    private Connection connection;
 
-        InputStream inputStream = DAO.class.getClassLoader().getResourceAsStream("/db.properties");
+    protected Connection getConnection(){
+        if (connection != null)
+            return connection;
+
+        InputStream inputStream = DAO.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE);
         Properties properties = new Properties();
         try {
             properties.load(inputStream);
-            String driver = properties.getProperty("driver");
-            String url = properties.getProperty("url");
-            String user = properties.getProperty("user");
-            String password = properties.getProperty("password");
+            String url = properties.getProperty(PROPERTY_URL);
+            String driver = properties.getProperty(PROPERTY_DRIVER);
+            String user = properties.getProperty(PROPERTY_USERNAME);
+            String password = properties.getProperty(PROPERTY_PASSWORD);
             Class.forName(driver);
-            conn = DriverManager.getConnection(url, user, password);
+            connection = DriverManager.getConnection(url, user, password);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new DAOException(e);
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            throw new DAOException(e);
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DAOException(e);
         }
 //Пробросить екс выше, метод протект,не статик
-        return conn;
+        return connection;
     }
 
-    public static void closeConnection(Connection toBeClosed) {
+    protected void closeConnection(Connection toBeClosed) {
         if (toBeClosed == null)
             return;
         try {

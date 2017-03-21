@@ -17,8 +17,8 @@
         <%--@elvariable id="jobSeeker" type=""--%>
         JobSeeker ID : <label>
         <input
-                type="text" readonly="readonly" name="id_jobseeker"
-                value="<c:out value="${jobSeeker.id_jobseeker}" />"/>
+                type="text" readonly="readonly" name="jobseeker_id"
+                value="<c:out value="${jobSeeker.jobseeker_id}" />"/>
         </label> <br/>
 
         JobSeeker Last Name : <label>

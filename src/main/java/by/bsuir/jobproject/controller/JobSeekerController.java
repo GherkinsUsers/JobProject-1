@@ -1,7 +1,7 @@
-package by.bsuir.jobproject.controllers;
+package by.bsuir.jobproject.controller;
 
 import by.bsuir.jobproject.dao.JobSeekerDAOImpl;
-import by.bsuir.jobproject.models.JobSeeker;
+import by.bsuir.jobproject.model.JobSeeker;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,6 +24,11 @@ public class JobSeekerController extends HttpServlet {
     private static final String LIST_JOBSEEKERS = "/listJobSeekers.jsp";
     private static final String INSERT_OR_EDIT = "/edtJobSeeker.jsp";
 
+    private static final String ACTION_DELETE = "delete";
+    private static final String ACTION_EDIT = "edit";
+    private static final String ACTION_LIST_VIEW = "list";
+    private static final String ACTION_INSERT = "insert";
+
     public JobSeekerController() {
         dao = new JobSeekerDAOImpl();
     }
@@ -31,20 +36,20 @@ public class JobSeekerController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String forward = "";
         String action = request.getParameter("action");
-        if (action.equalsIgnoreCase("delete")) {
-            int id_jobseeker = Integer.parseInt(request.getParameter("id_jobseeker"));
-            dao.deleteJobSeeker(id_jobseeker);
+        if (action.equalsIgnoreCase(ACTION_DELETE)) {
+            int jobseeker_id = Integer.parseInt(request.getParameter("jobseeker_id"));
+            dao.deleteJobSeeker(jobseeker_id);
             forward = LIST_JOBSEEKERS;
             request.setAttribute("jobSeekers", dao.getAllJobSeekers());
-        } else if (action.equalsIgnoreCase("edit")) {
+        } else if (action.equalsIgnoreCase(ACTION_EDIT)) {
             forward = INSERT_OR_EDIT;
-            int id_jobseeker = Integer.parseInt(request.getParameter("id_jobseeker"));
-            JobSeeker jobSeeker = dao.getJobSeekerById(id_jobseeker);
+            int jobseeker_id = Integer.parseInt(request.getParameter("jobseeker_id"));
+            JobSeeker jobSeeker = dao.getJobSeekerById(jobseeker_id);
             request.setAttribute("jobSeeker", jobSeeker);
-        } else if (action.equalsIgnoreCase("list")) {
+        } else if (action.equalsIgnoreCase(ACTION_LIST_VIEW)) {
             forward = LIST_JOBSEEKERS;
             request.setAttribute("jobSeekers", dao.getAllJobSeekers());
-        } else if (action.equalsIgnoreCase("insert")) {
+        } else if (action.equalsIgnoreCase(ACTION_INSERT)) {
             forward = INSERT_OR_EDIT;
         }
         //doget dopost - final, protected abstract - execute
@@ -62,17 +67,17 @@ public class JobSeekerController extends HttpServlet {
         jobSeeker.setJobseeker_password(request.getParameter("jobseeker_password"));
         jobSeeker.setJobseeker_email(request.getParameter("jobseeker_email"));
         jobSeeker.setJobseeker_status(request.getParameter("jobseeker_status"));
+        request.setAttribute("jobSeekers", dao.getAllJobSeekers());
 
-        String id_jobseeker = request.getParameter("id_jobseeker");
-        if (id_jobseeker == null | id_jobseeker == "") {
+        String jobseeker_id = request.getParameter("jobseeker_id");
+        if (jobseeker_id == null | jobseeker_id == "") {
             dao.addJobSeeker(jobSeeker);
         } else {
-            jobSeeker.setId_jobseeker(Integer.parseInt(id_jobseeker));
+            jobSeeker.setJobseeker_id(Integer.parseInt(jobseeker_id));
             dao.updateJobSeeker(jobSeeker);
         }
 
         RequestDispatcher view = request.getRequestDispatcher(LIST_JOBSEEKERS);
-        request.setAttribute("jobSeekers", dao.getAllJobSeekers());
         view.forward(request, response);
     }
 

@@ -1,13 +1,14 @@
-package by.bsuir.jobproject.models;
+package by.bsuir.jobproject.model;
 
 import java.io.Serializable;
 
 /**
  * Created by AR on 12.03.2017.
  */
+
 public class JobSeeker implements Serializable{
 
-    private int id_jobseeker;
+    private int jobseeker_id;
     private String jobseeker_lastname;
     private String jobseeker_name;
     private String jobseeker_login;
@@ -15,12 +16,15 @@ public class JobSeeker implements Serializable{
     private String jobseeker_email;
     private String jobseeker_status;
 
-    public int getId_jobseeker() {
-        return id_jobseeker;
+    public JobSeeker(){
     }
 
-    public void setId_jobseeker(int id_jobseeker) {
-        this.id_jobseeker = id_jobseeker;
+    public int getJobseeker_id() {
+        return jobseeker_id;
+    }
+
+    public void setJobseeker_id(int jobseeker_id) {
+        this.jobseeker_id = jobseeker_id;
     }
 
     public String getJobseeker_lastname() {

@@ -1,4 +1,4 @@
-package by.bsuir.jobproject.models;
+package by.bsuir.jobproject.model;
 
 import java.io.Serializable;
 

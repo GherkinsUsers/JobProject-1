@@ -31,15 +31,15 @@
             <%--@elvariable id="jobSeekers" type="java.util.List"--%>
             <c:forEach items="${jobSeekers}" var="jobSeeker">
                 <tr>
-                    <td><c:out value="${jobSeeker.id_jobseeker}" /></td>
+                    <td><c:out value="${jobSeeker.jobseeker_id}" /></td>
                     <td><c:out value="${jobSeeker.jobseeker_lastname}" /></td>
                     <td><c:out value="${jobSeeker.jobseeker_name}" /></td>
                     <td><c:out value="${jobSeeker.jobseeker_login}" /></td>
                     <td><c:out value="${jobSeeker.jobseeker_password}" /></td>
                     <td><c:out value="${jobSeeker.jobseeker_email}" /></td>
                     <td><c:out value="${jobSeeker.jobseeker_status}" /></td>
-                    <td><a href="JobSeekerController?action=edit&id_jobseeker=<c:out value="${jobSeeker.id_jobseeker}"/>">Update</a></td>
-                    <td><a href="JobSeekerController?action=delete&id_jobseeker=<c:out value="${jobSeeker.id_jobseeker}"/>">Delete</a></td>
+                    <td><a href="JobSeekerController?action=edit&jobseeker_id=<c:out value="${jobSeeker.jobseeker_id}"/>">Update</a></td>
+                    <td><a href="JobSeekerController?action=delete&jobseeker_id=<c:out value="${jobSeeker.jobseeker_id}"/>">Delete</a></td>
                 </tr>
             </c:forEach>
         </tbody>

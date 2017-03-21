@@ -1,6 +1,6 @@
 package by.bsuir.jobproject.dao;
 
-import by.bsuir.jobproject.models.Resume;
+import by.bsuir.jobproject.model.Resume;
 import by.bsuir.jobproject.util.DAO;
 
 import java.sql.PreparedStatement;
@@ -10,13 +10,15 @@ import java.util.List;
 /**
  * Created by AR on 19.03.2017.
  */
+//TODO check sql
+//TODO rename id
 public class ResumeDAOImpl extends DAO implements ResumeDAO {
 
 
     public void addResume(Resume resume) {
         try {
             String query = "insert into resume (id_resume, id_jobseeker, id_specialty, id_skill, id_certificate, id_country, resume_information) values (?,?,?,?,?,?,?)";
-            PreparedStatement preparedStatement = DAO.getConnection().prepareStatement(query);
+            PreparedStatement preparedStatement = getConnection().prepareStatement(query);
 
             preparedStatement.setInt(1, resume.getId_resume());
             preparedStatement.setInt(2, resume.getId_jobseeker());
@@ -35,16 +37,6 @@ public class ResumeDAOImpl extends DAO implements ResumeDAO {
 
     //TODO check sql
     public void deleteResume(int id_jobSeeker) {
-
-        try {
-            PreparedStatement preparedStatement =
-                    DAO.getConnection().prepareStatement("delete from jobseeker where id_jobseeker=?");
-            preparedStatement.setInt(1, id_jobSeeker);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
     }
 

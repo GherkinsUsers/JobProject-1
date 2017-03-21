@@ -1,6 +1,7 @@
 package by.bsuir.jobproject.dao;
 
-import by.bsuir.jobproject.models.JobSeeker;
+import by.bsuir.jobproject.model.JobSeeker;
+import by.bsuir.jobproject.util.DAOException;
 
 import java.util.List;
 
@@ -9,14 +10,14 @@ import java.util.List;
  */
 public interface JobSeekerDAO {
 
-    void addJobSeeker(JobSeeker jobSeeker);
+    void addJobSeeker(JobSeeker jobSeeker) throws DAOException;
 
-    void deleteJobSeeker(int id_jobSeeker);
+    void deleteJobSeeker(int jobseeker_id) throws DAOException;
 
-    void updateJobSeeker(JobSeeker jobSeeker);
+    void updateJobSeeker(JobSeeker jobSeeker) throws DAOException;
 
-    List<JobSeeker> getAllJobSeekers();
+    List<JobSeeker> getAllJobSeekers() throws DAOException;
 
-    JobSeeker getJobSeekerById(int id_jobseeker);
+    JobSeeker getJobSeekerById(int jobseeker_id) throws DAOException;
 
 }

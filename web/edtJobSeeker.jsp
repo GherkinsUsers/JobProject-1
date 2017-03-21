@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <title>Add New JobSeekers</title>
@@ -17,8 +18,8 @@
         <%--@elvariable id="jobSeeker" type=""--%>
         JobSeeker ID : <label>
         <input
-                type="text" readonly="readonly" name="id_jobseeker"
-                value="<c:out value="${jobSeeker.id_jobseeker}" />"/>
+                type="text" readonly="readonly" name="jobseeker_id"
+                value="<c:out value="${jobSeeker.jobseeker_id}" />"/>
         </label> <br/>
 
         JobSeeker Last Name : <label>
